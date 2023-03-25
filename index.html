@@ -1,53 +1,62 @@
 
 <html>
   <head>
-    <title>Meu Poema</title>
+    <title>Meu Poema RGB</title>
     <style>
       body {
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
         font-family: Arial, sans-serif;
+        font-size: 20px;
+        line-height: 1.5;
+        text-align: center;
         margin: 0;
         padding: 0;
       }
-
-      header {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 10px;
-      }
-
-      main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-
+      
       h1 {
-        font-size: 48px;
-        margin: 0;
+        font-size: 36px;
+        margin-top: 50px;
       }
-
+      
       p {
-        font-size: 24px;
-        line-height: 1.5;
-        margin: 20px 0;
-        text-align: center;
+        margin-top: 50px;
+      }
+      
+      .red {
+        color: rgb(255, 0, 0);
+      }
+      
+      .green {
+        color: rgb(0, 255, 0);
+      }
+      
+      .blue {
+        color: rgb(0, 0, 255);
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>Meu Poema</h1>
-    </header>
-    <main>
-      <p>
-        A alma voa
-        e o amor fica,
-        a dor passa,
-        a vida é eterna.
-      </p>
-    </main>
+    <h1>Meu Poema RGB</h1>
+    <p class="red">Roses are red,</p>
+    <p class="green">Grass is green,</p>
+    <p class="blue">The sky is blue,</p>
+    <p class="red">And I'm happy to be alive and true.</p>
+    <script>
+      var red = document.getElementsByClassName("red");
+      for (var i = 0; i < red.length; i++) {
+        red[i].style.color = "rgb(255, 0, 0)";
+      }
+      
+      var green = document.getElementsByClassName("green");
+      for (var i = 0; i < green.length; i++) {
+        green[i].style.color = "rgb(0, 255, 0)";
+      }
+      
+      var blue = document.getElementsByClassName("blue");
+      for (var i = 0; i < blue.length; i++) {
+        blue[i].style.color = "rgb(0, 0, 255)";
+      }
+    </script>
   </body>
 </html>
