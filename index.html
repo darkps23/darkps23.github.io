@@ -1,89 +1,91 @@
 
 <html>
 <head>
-	<title>SORTEIO</title>
+	<title>Sorteador de Números</title>
 	<style>
 		body {
-			background-color: #9dc5c3;
+			background-color: #d8e7ff;
+			font-family: Arial, sans-serif;
 		}
+		
 		h1 {
-			color: #ffffff;
 			text-align: center;
 			font-size: 50px;
+			color: #262626;
+		}
+		
+		#number {
+			font-size: 250px;
+			font-weight: bold;
+			color: #ff4d4d;
+			text-align: center;
 			margin-top: 100px;
+			margin-bottom: 100px;
+			transition: all 0.5s ease-in-out;
 		}
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 50px;
+		
+		#number:hover {
+			transform: rotate(360deg);
+			color: #ffff66;
 		}
+		
 		button {
-			background-color: #edae49;
+			background-color: #4da6ff;
 			color: #ffffff;
-			font-size: 25px;
-			padding: 15px 40px;
-			border-radius: 5px;
-			margin-top: 50px;
+			padding: 10px 20px;
 			border: none;
+			border-radius: 5px;
+			font-size: 20px;
 			cursor: pointer;
-			animation: color-change 5s infinite;
-		}
-		button:hover {
-			background-color: #3c415e;
-			animation: none;
-		}
-		@keyframes color-change {
-			0% {
-				background-color: #edae49;
-			}
-			25% {
-				background-color: #ef476f;
-			}
-			50% {
-				background-color: #06d6a0;
-			}
-			75% {
-				background-color: #118ab2;
-			}
-			100% {
-				background-color: #9dc5c3;
-			}
-		}
-		.img-container {
-			display: flex;
-			align-items: center;
+			transition: all 0.5s ease-in-out;
 			margin-top: 50px;
+			margin-bottom: 50px;
 		}
-		img {
-			height: 200px;
-			margin: 0px 50px;
-			animation: spin 2s infinite;
+		
+		button:hover {
+			background-color: #66ccff;
+			color: #262626;
+			transform: scale(1.1);
 		}
-		@keyframes spin {
-			from {
-				transform: rotate(0deg);
-			}
-			to {
-				transform: rotate(360deg);
-			}
+		
+		#image {
+			width: 300px;
+			height: 300px;
+			margin: 0 auto;
+			background-image: url("https://picsum.photos/300");
+			background-size: cover;
+			background-position: center;
+			transition: all 0.5s ease-in-out;
+		}
+		
+		#image:hover {
+			transform: rotate(-360deg);
+			background-image: url("https://picsum.photos/300?grayscale");
 		}
 	</style>
 </head>
 <body>
-	<h1>SORTEIO</h1>
-	<div class="container">
-		<button onclick="sorteio()">SORTEAR</button>
-		<div class="img-container">
-			<img id="img1" src="https://media.giphy.com/media/Mc4f4BYbLJXuo/giphy.gif">
-			<img id="img2" src="https://media.giphy.com/media/Mc4f4BYbLJXuo/giphy.gif">
-			<img id="img3" src="https://media.giphy.com/media/Mc4f4BYbLJXuo/giphy.gif">
-		</div>
-	</div>
+	<h1>Sorteador de Números</h1>
+	<div id="number">0</div>
+	<button onclick="sortear()">Sortear</button>
+	<div id="image"></div>
+	
 	<script>
-		function sorteio() {
-			var imgs = ["https://media.giphy.com/media/Mc4f4BYbLJXuo/giphy.gif", "https://media.giphy.com/media/xT0xezQGU5xCDJuCPe/giphy.gif", "https://media.giphy.com/media/gCm1wWvAnOkIE/giphy.gif", "https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif", "https://media.giphy.com/media/xThuWq3uV7nu8DvzTG/giphy.gif"];
-			var img1 = document.getElementById("img1");
-			var img2 = document.getElementById("img2");
-			var img3 = document.getElementById("img3");
-			var random1 = Math.floor(Math.random
+		function sortear() {
+			var numero = Math.floor(Math.random() * 1000) + 1;
+			document.getElementById("number").innerHTML = numero;
+			document.getElementById("number").style.color = getRandomColor();
+			document.getElementById("image").style.backgroundImage = "url('https://picsum.photos/300?" + Math.floor(Math.random() * 1000) + "')";
+		}
+		
+		function getRandomColor() {
+			var letters = "0123456789ABCDEF";
+			var color = "#";
+			for (var i = 0; i < 6; i++) {
+				color += letters[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		}
+	</script>
+</body>
+</html>
