@@ -1,62 +1,68 @@
 
 <html>
 <head>
-	<title>Sorteio do Felps</title>
+	<title>A Vida é uma Jornada Sem Fim</title>
 	<style>
 		body {
-			background-color: #000;
-		}
-		h1 {
-			color: #ff0000;
-			text-align: center;
-			margin-top: 50px;
-		}
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			margin-top: 50px;
-		}
-		.number {
-			font-size: 100px;
+			background-color: #1f2533;
 			color: #fff;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		
+		h1 {
+			font-size: 3em;
+			margin-top: 50px;
+			margin-bottom: 50px;
+		}
+		
+		p {
+			font-size: 1.5em;
 			margin-bottom: 20px;
-			animation: rotate 5s linear infinite;
-			text-shadow: 0px 0px 20px #ff0000;
+			line-height: 1.5em;
 		}
-		@keyframes rotate {
-			0% {
-				transform: rotate(0deg);
+		
+		p:hover {
+			color: #ff5757;
+			cursor: pointer;
+		}
+		
+		@media only screen and (max-width: 768px) {
+			h1 {
+				font-size: 2em;
+				margin-top: 30px;
+				margin-bottom: 30px;
 			}
-			100% {
-				transform: rotate(360deg);
+			
+			p {
+				font-size: 1em;
 			}
-		}
-	</style>
-
-	<title>Imagem centralizada com fundo vermelho</title>
-	<style type="text/css">
-		body {
-			background-color: red;
-		}
-		img {
-			display: block;
-			margin: 0 auto;
 		}
 	</style>
 </head>
 <body>
-	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQH1no4OSbCwoY29I2EFohGAlJ5kQX65jfow&usqp=CAU" alt="Descrição da imagem">
-	<h1>Sorteio Do Felps 🙈</h1>
-	<div class="container">
-		<div class="number" id="numero">0</div>
-		<button onclick="sortear()">Sortear</button>
-	</div>
+	<h1>A Vida é uma Jornada Sem Fim</h1>
+	<p>Com altos e baixos, começos e fins.</p>
+	<p>É uma história que se escreve dia a dia</p>
+	<p>Com momentos de riso e de melancolia.</p>
+	<p>Nessa viagem, a cada novo amanhecer,</p>
+	<p>Aprendemos a amar, a sorrir e a viver.</p>
+	<p>Com cada passo, descobrimos nosso caminho,</p>
+	<p>E seguimos em frente, rumo ao nosso destino.</p>
 	<script>
-		function sortear() {
-			var numero = Math.floor(Math.random() * 1000) + 1;
-			document.getElementById("numero").innerHTML = numero;
+		let paragraphs = document.getElementsByTagName("p");
+		let colors = ["#ff5757", "#7a5cff", "#e0c800", "#00d5ff", "#ff9d4d", "#ffffff"];
+		let currentColorIndex = 0;
+		
+		for (let i = 0; i < paragraphs.length; i++) {
+			paragraphs[i].addEventListener("mouseover", function() {
+				this.style.color = colors[currentColorIndex];
+				currentColorIndex = (currentColorIndex + 1) % colors.length;
+			});
+			
+			paragraphs[i].addEventListener("mouseout", function() {
+				this.style.color = "#fff";
+			});
 		}
 	</script>
 </body>
